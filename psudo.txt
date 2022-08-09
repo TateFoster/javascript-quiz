@@ -1,0 +1,14 @@
+Javascript Quiz
+
+Mechanics - Have questions appear at the top of the brwoser with 4 multiple choice options below. There will be one correct answer and 3 incorrect ones. When one question is answered the quiz will move onto the next set of questions and answers letting the user know if they got the last question correct or incorrect. This quiz is also supposed to be timed with time being taken off for incorrect answers.
+
+h1 - title top center
+h2 question top timer bottom
+h3 correct/wrong indicator
+buttons - answers
+
+click event to change buttons, question, indicator and possibly timer
+
+should be set up to move position for mobile size
+
+ideal - being able to have the answer placement randomized for the 4 locations. 
