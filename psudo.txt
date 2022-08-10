@@ -12,3 +12,5 @@ click event to change buttons, question, indicator and possibly timer
 should be set up to move position for mobile size
 
 ideal - being able to have the answer placement randomized for the 4 locations. 
+
+question answer sets can be object / arrays

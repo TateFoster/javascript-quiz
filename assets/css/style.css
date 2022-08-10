@@ -5,6 +5,7 @@
 }
 
 body {
+    background-color: beige;
     font-size:  62.5%;
 }
 
@@ -12,10 +13,50 @@ h1, h2 {
     text-align: center;
 }
 h1 {
+    padding: 1%;
+    background-color: #0f7717f1;
     font-size: 4rem;
+}
+
+h2 {
+    font-size: 3rem;
 }
 
 section {
     display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 
+}
+
+h3 {
+    font-size: 2rem;
+    width: 100%;
+}
+
+button {
+    background-color: blue;
+    color: white;
+    font-size: 1.5rem;
+}
+
+button:hover {
+    background-color: darkblue;
+    opacity: .8;
+}
+
+[data-answer = "correct"] {
+    color: green;
+}
+
+[data-answer = "incorrect"] {
+    color: red;
+}
+
+
+
+.answer {
+    padding: 2%;
+    margin: 4%;
+    width: 40%;
 }
