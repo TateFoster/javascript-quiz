@@ -14,13 +14,18 @@
     <body>
       <h2 id="question">Are you ready?</h2>
       <section>
-        <button id="a" class="answer">A: Start Quiz</button>
-        <button id="b" class="answer">B: Begin Quiz</button>
+        <button data-present="shown" class="answer">A: Start Quiz</button>
+        <button data-present="shown" class="answer">B: Begin Quiz</button>
         <h3 data-answer="correct"></h3>
-        <button id="c" class="answer">C: Engage Quiz</button>
-        <button id="d" class="answer">D: Run Quiz</button>
+        <button data-present="shown" class="answer">C: Engage Quiz</button>
+        <button data-present="shown" class="answer">D: Run Quiz</button>
       </section>
-      <h2 class="timer"></h2>
+
+      <h2 id="timer"></h2>
+      <form id="high-scores">
+        <input type="text" />
+        <button></button>
+      </form>
     </body>
     <script src="./assets/js/script.js"></script>
   </body>

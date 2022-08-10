@@ -2,21 +2,19 @@ var buttonEl = document.querySelectorAll(".answer")
 var job = document.querySelector("h3")
 var correct = 0;
 var question = document.querySelectorAll("#question");
-var questionAll= ["Which of the following choices makes a variable into an object?", "Which shows the correct way of selecting a class in the related html document?", "What type of function allows you to itterate through an array?", "What type of Event Listener is used to start this quiz?"]
+var questionAll= ["Which of the following choices makes a variable into an object?", "Which shows the correct way of selecting a class in the related html document?", "What type of function allows you to itterate through an array?", "What type of Event Listener is used to start this quiz?"] 
 var answersAll = {
     answersOne: ["var example = [ ]", "var example = { }", 'var example = " "', "var example = ( )" ],
     answersTwo: ['document.querySelectorAll("#class")', 'document.getElementByID("class")', 'document.querySelectorAll(".class")', 'document.querySelectorAll("class")' ],
     answersThree: ["if() {} else {}", "switch() {}", "function() {}", "for() {}"],
     answersFour: ["click", "mouseover", "keydown", "load"]
 }
-
-var timer = 30;
+var timerEl = document.querySelectorAll("#timer");
+var timerSeconds = 30;
 var index = 0;
-console.log(answersAll.answersOne)
 
 
 var answerQuestion = function (next) {
-    console.log("click is heard");
     
     question[0].textContent = questionAll[index]
 
@@ -56,13 +54,51 @@ var answerQuestion = function (next) {
                     answersAll.answersFour.splice(r, 1)}
                 break;
         }
-    // console.log(randomAnswer)
-    // }
+
+
     if (index < questionAll.length ) {
     index = index + next 
-    } else {question[0].textContent = "That's all! You scored " + correct + " out of " + questionAll.length}
+    } else {
+        allDone();
+    }
 }
 
+var allDone = function (){
+    if (timerSeconds > 0) {
+    setTime();
+    }
+    question[0].textContent = "That's all! You scored " + correct + " out of " + questionAll.length;
+        job.textContent = "";
+
+        for (i = 0; i < buttonEl.length; i++) {
+        buttonEl[i].dataset.present = "hidden";
+        console.log(buttonEl[i]);
+        } 
+}
+
+
+function setTime() {
+    
+    timerEl[0].textContent = timerSeconds + " seconds remaining.";
+    var timerInterval = setInterval(function() {
+        if(timerSeconds === 0 || index === questionAll.length) {
+
+        clearInterval(timerInterval);
+        
+        if (timerSeconds === 0)  {
+            allDone();
+            timerEl[0].textContent =  "Time's up!";
+            }
+        
+        } else {
+        timerSeconds--;
+        timerEl[0].textContent = timerSeconds + " seconds remaining.";
+
+        console.log(timerSeconds);
+        }
+
+    }, 1000);
+}
 
 
 
@@ -71,14 +107,21 @@ var answerQuestion = function (next) {
 
 for (i = 0; i < buttonEl.length; i++) {
 buttonEl[i].addEventListener("click", function(event) {
-    if (event.target.textContent.includes("Quiz")){} else {
+    event.preventDefault();
+
+    if (event.target.textContent.includes("Quiz")){
+        setTime();
+    } else {
     if (event.target.textContent === "var example = { }" || event.target.textContent === 'document.querySelectorAll(".class")' || event.target.textContent === "for() {}" || event.target.textContent === "click") {
         correct++;
         job.textContent = "That's Correct!"
         job.dataset.answer = "correct";
 
-        console.log(correct)
     } else {job.textContent = "Sorry that's wrong!";
-     job.dataset.answer = "incorrect";}}
+    job.dataset.answer = "incorrect";
+    timerSeconds--;
+    timerSeconds--;
+    timerSeconds--;
+    timerSeconds--;}}
     answerQuestion(1);
 })};

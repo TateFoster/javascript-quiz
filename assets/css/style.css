@@ -55,6 +55,13 @@ button:hover {
     color: red;
 }
 
+[data-present = "shown"] {
+    display: block;
+}
+
+[data-present = "hidden"] {
+    display: none;
+}
 
 
 .answer {
