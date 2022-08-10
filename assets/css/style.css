@@ -46,10 +46,12 @@ button:hover {
 }
 
 [data-answer = "correct"] {
+    text-align: center;
     color: green;
 }
 
 [data-answer = "incorrect"] {
+    text-align: center;
     color: red;
 }
 
