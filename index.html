@@ -10,6 +10,14 @@
   <body>
     <header>
       <h1>Javascript Quiz</h1>
+      <ul class="scores">
+        High Scores:
+        <li class="score"></li>
+        <li class="score"></li>
+        <li class="score"></li>
+        <li class="score"></li>
+        <li class="score"></li>
+      </ul>
     </header>
     <body>
       <h2 id="question">Are you ready?</h2>
@@ -22,10 +30,13 @@
       </section>
 
       <h2 id="timer"></h2>
-      <form id="high-scores">
-        <input type="text" />
-        <button></button>
-      </form>
+      <div data-present="hidden">
+        <form id="user-score">
+          <label for="initials">Save your score!</label>
+          <input type="text" id="initials" placeholder="Enter your initials" />
+          <button>Submit</button>
+        </form>
+      </div>
     </body>
     <script src="./assets/js/script.js"></script>
   </body>
