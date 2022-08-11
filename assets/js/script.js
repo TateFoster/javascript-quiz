@@ -11,6 +11,11 @@ var questionAll = [
   "Which shows the correct way of selecting a class in the related html document?",
   "What type of function allows you to itterate through an array?",
   "What type of Event Listener is used to start this quiz?",
+  "What primitive data type does ! in front of a function change?",
+  "What default action does the click event on a button have?",
+  "JavaScript manipulates html through ______.",
+  "JavaScript is mostly used in _______",
+  "A method is a what attached to an object?",
 ];
 var answersAll = {
   answersOne: [
@@ -27,6 +32,16 @@ var answersAll = {
   ],
   answersThree: ["if() {} else {}", "switch() {}", "function() {}", "for() {}"],
   answersFour: ["click", "mouseover", "keydown", "load"],
+  answersFive: ["string", "boolean", "number", "symbol"],
+  answersSix: ["none", "refreshes page", "creates alert", "calls function"],
+  answersSeven: ["the DOM", "API's", "a method", "scope"],
+  answersEight: [
+    "web development",
+    "game development",
+    "databases",
+    "system applications",
+  ],
+  answersNine: ["a function", "an object", "a variable", "an array"],
 };
 var timerEl = document.querySelectorAll("#timer");
 var timerSeconds = 30;
@@ -76,6 +91,46 @@ var answerQuestion = function (next) {
         r = Math.floor(answersAll.answersFour.length * Math.random());
         buttonEl[i].textContent = answersAll.answersFour[r];
         answersAll.answersFour.splice(r, 1);
+      }
+      break;
+
+    case questionAll[4]:
+      for (i = 0; i < buttonEl.length; i++) {
+        r = Math.floor(answersAll.answersFive.length * Math.random());
+        buttonEl[i].textContent = answersAll.answersFive[r];
+        answersAll.answersFive.splice(r, 1);
+      }
+      break;
+
+    case questionAll[5]:
+      for (i = 0; i < buttonEl.length; i++) {
+        r = Math.floor(answersAll.answersSix.length * Math.random());
+        buttonEl[i].textContent = answersAll.answersSix[r];
+        answersAll.answersSix.splice(r, 1);
+      }
+      break;
+
+    case questionAll[6]:
+      for (i = 0; i < buttonEl.length; i++) {
+        r = Math.floor(answersAll.answersSeven.length * Math.random());
+        buttonEl[i].textContent = answersAll.answersSeven[r];
+        answersAll.answersSeven.splice(r, 1);
+      }
+      break;
+
+    case questionAll[7]:
+      for (i = 0; i < buttonEl.length; i++) {
+        r = Math.floor(answersAll.answersEight.length * Math.random());
+        buttonEl[i].textContent = answersAll.answersEight[r];
+        answersAll.answersEight.splice(r, 1);
+      }
+      break;
+
+    case questionAll[8]:
+      for (i = 0; i < buttonEl.length; i++) {
+        r = Math.floor(answersAll.answersNine.length * Math.random());
+        buttonEl[i].textContent = answersAll.answersNine[r];
+        answersAll.answersNine.splice(r, 1);
       }
       break;
   }
@@ -129,7 +184,12 @@ for (i = 0; i < buttonEl.length; i++) {
         event.target.textContent === "var example = { }" ||
         event.target.textContent === 'document.querySelectorAll(".class")' ||
         event.target.textContent === "for() {}" ||
-        event.target.textContent === "click"
+        event.target.textContent === "click" ||
+        event.target.textContent === "boolean" ||
+        event.target.textContent === "refreshes page" ||
+        event.target.textContent === "the DOM" ||
+        event.target.textContent === "web development" ||
+        event.target.textContent === "a function"
       ) {
         correct++;
         job.textContent = "That's Correct!";
@@ -148,8 +208,6 @@ for (i = 0; i < buttonEl.length; i++) {
 }
 
 userScoreEl[0].addEventListener("submit", function (event) {
-  event.preventDefault();
-
   adjustHighScores();
 
   score = score.sort(function (a, b) {
