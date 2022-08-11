@@ -49,7 +49,10 @@ var index = 0;
 var score = ["0 : PH", "0 : PH", "0 : PH", "0 : PH", "0 : PH"];
 
 var highScores = function () {
-  score = JSON.parse(localStorage.getItem("newScore"));
+  oldScores = JSON.parse(localStorage.getItem("newScore"));
+  if (oldScores !== null) {
+    score = oldScores;
+  }
   for (i = 0; i < score.length; i++) {
     scoresEl[i].textContent = score[i];
   }
