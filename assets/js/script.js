@@ -162,10 +162,10 @@ var allDone = function () {
 function setTime() {
   timerEl[0].textContent = timerSeconds + " seconds remaining.";
   var timerInterval = setInterval(function () {
-    if (timerSeconds === 0 || index === questionAll.length) {
+    if (timerSeconds <= 0 || index === questionAll.length) {
       clearInterval(timerInterval);
 
-      if (timerSeconds === 0) {
+      if (timerSeconds <= 0) {
         allDone();
         timerEl[0].textContent = "Time's up!";
       }
